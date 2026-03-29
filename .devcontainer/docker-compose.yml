@@ -1,0 +1,41 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ..:/workspace:cached
+    
+    # Overrides default command so things don't shut down after the process ends.
+    command: sleep infinity
+
+    # Connect to the services
+    environment:
+      - DATABASE_URL=postgresql+asyncpg://postgres:postgres@db:5432/framework_m
+      - REDIS_URL=redis://redis:6379/0
+      - NATS_URL=nats://nats:4222
+      - FRAMEWORK_M_TENANCY_MODE=multi
+      - UV_LINK_MODE=copy
+
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=framework_m
+    # ports:
+    #   - "5432:5432"
+
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    # ports:
+    #   - "6379:6379"
+
+  nats:
+    image: nats:2-alpine
+    restart: unless-stopped
+    # ports:
+    #   - "4222:4222"
+    #   - "8222:8222" # NATS Management HTTP port

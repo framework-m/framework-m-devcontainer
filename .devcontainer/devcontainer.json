@@ -1,0 +1,38 @@
+{
+  "name": "Framework M Devcontainer",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspace",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.pylance",
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/workspace/.venv/bin/python",
+        "python.terminal.activateEnvInSelectedTerminal": true,
+        "editor.formatOnSave": true
+      }
+    }
+  },
+  "forwardPorts": [8888, 5173, 9999],
+  "portsAttributes": {
+    "8888": {
+      "label": "Framework M API",
+      "onAutoForward": "notify"
+    },
+    "5173": {
+      "label": "Frontend (Vite)",
+      "onAutoForward": "openBrowser"
+    },
+    "9999": {
+      "label": "Studio UI",
+      "onAutoForward": "notify"
+    }
+  },
+  "postCreateCommand": "uv sync && sudo ln -sf /workspace/.venv/bin/m /usr/local/bin/m",
+  "remoteUser": "vscode"
+}

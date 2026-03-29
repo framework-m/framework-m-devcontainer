@@ -1,0 +1,13 @@
+[project]
+name = "framework-m-devcontainer"
+version = "0.1.0"
+description = "Framework M Devcontainer"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "framework-m",
+    "framework-m-studio",
+]
+
+[tool.uv]
+managed = true
