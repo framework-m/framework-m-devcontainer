@@ -18,6 +18,7 @@ Welcome to the **Framework M** developer container! This repository is designed 
     uv add psycopg2-binary
     uv run m migrate init
     uv run m migrate all
+    uv run m create-admin --email admin@example.com --password Secret@1234 --name "Sys Admin"
     ```
 5.  **Start Developing**:
     ```bash
