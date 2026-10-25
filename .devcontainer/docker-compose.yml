@@ -15,6 +15,7 @@ services:
       - REDIS_URL=redis://redis:6379/0
       - NATS_URL=nats://nats:4222
       - FRAMEWORK_M_TENANCY_MODE=multi
+      - FRAMEWORK_M_JWT_SECRET=dev-secret-only-for-devcontainer
       - UV_LINK_MODE=copy
 
   db:
