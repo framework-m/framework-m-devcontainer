@@ -7,7 +7,7 @@ A zero-config devcontainer for building Framework M applications.
 - Python 3.12 + uv (with the `m` CLI linked)
 - Node 24 + pnpm
 - PostgreSQL 16, Redis 7, and NATS 2
-- Forwarded ports: 8888 (API), 5173 (Vite), 9999 (Studio)
+- Forwarded ports: 8000 (m prod), 8888 (API), 5173 (Vite), 9999 (Studio)
 - VS Code extensions for Python, Pylance, Prettier, and ESLint
 
 ## Get started
