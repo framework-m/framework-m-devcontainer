@@ -1,43 +1,18 @@
 # Framework M Devcontainer
 
-## Introduction
+A zero-config devcontainer for building Framework M applications.
 
-Welcome to the **Framework M** developer container! This repository is designed to be a zero-config, "one-click" environment for building modular business applications.
+## What's included
 
-## Getting Started (Daytona / Gitpod / Codespaces)
+- Python 3.12 + uv (with the `m` CLI linked)
+- Node 24 + pnpm
+- PostgreSQL 16, Redis 7, and NATS 2
+- Forwarded ports: 8000 (m prod), 8888 (API), 5173 (Vite), 9999 (Studio)
+- VS Code extensions for Python, Pylance, Prettier, and ESLint
 
-1.  **Open in Cloud IDE**: Just click the "Open" button in your favorite provider.
-2.  **Wait for Setup**: The devcontainer will automatically sync dependencies and link the `m` CLI.
-3.  **Create Your First App**:
-    ```bash
-    uv run m new app my-cool-app --with-frontend
-    ```
-4.  **Run prerequisite commands**:
-    ```bash
-    cd my_cool_app
-    uv add psycopg2-binary
-    uv run m migrate init
-    uv run m migrate all
-    uv run m create-admin --email admin@example.com --password Secret@1234 --name "Sys Admin"
-    ```
-5.  **Start Developing**:
-    ```bash
-    uv run m dev --studio
-    ```
+## Get started
 
-## Features
+- [Framework M Getting Started](https://www.frameworkm.dev/docs/tutorials/getting-started) — create and run an app.
+- [Develop in a Devcontainer](https://www.frameworkm.dev/docs/tutorials/develop-in-a-devcontainer) — open this repo with VS Code Dev Containers or Devsy.
 
-- **Metadata-Driven**: Define your data models (DocTypes) in Python, and the framework handles the rest.
-- **Unified Frontend**: Instant React/Vite frontends with built-in desk UI.
-- **Enterprise-Ready Infrastructure**:
-  - **PostgreSQL 16**: High-performance analytical and transactional storage.
-  - **Redis 7**: Fast caching and built-in pub/sub.
-  - **NATS 2**: Modern enterprise-grade event bus.
-- **Built-in Studio**: A developer portal available on port `9999`.
-
-## Architecture Modes
-
-- **Indie Mode**: Default with SQLite (internal) or local files.
-- **Enterprise Mode**: Enabled by default in this devcontainer, utilizing Postgres, Redis, and NATS for scale.
-
-Enjoy the frictionless developer experience!
+The devcontainer runs in enterprise mode: PostgreSQL, Redis, and NATS are configured automatically.

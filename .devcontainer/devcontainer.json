@@ -19,8 +19,12 @@
       }
     }
   },
-  "forwardPorts": [8888, 5173, 9999],
+  "forwardPorts": [8000, 8888, 5173, 9999],
   "portsAttributes": {
+    "8000": {
+      "label": "Framework M (m prod)",
+      "onAutoForward": "notify"
+    },
     "8888": {
       "label": "Framework M API",
       "onAutoForward": "notify"
